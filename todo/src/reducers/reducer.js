@@ -32,7 +32,7 @@ export const reducer = (state, action) => {
         //ADD_TASK
         case "ADD_TASK":
             console.log("Added Task", action.payload);
-            const nextState = {
+            const nextStateAdd = {
                 ...state,
                 tasks:[...state.tasks,
                     {   taskName:action.payload,
@@ -43,7 +43,7 @@ export const reducer = (state, action) => {
             };
             return(
                 //updates state with contents (replaces)
-                nextState
+                nextStateAdd
             );
         //DELETE_DONE
                 //filter
@@ -53,7 +53,48 @@ export const reducer = (state, action) => {
             //map: need id, change status of the one that matches id from click function
                 // return full item with taskdone:true
                 // make sure whole object is in return
-            return(state);
+
+            // console.log("Reducer Toggled");
+            // console.log(action)
+
+                
+            // state.copied=!state.copied;
+
+            
+            // const nextStateToggle = {
+            //     ...state,
+            //     tasks:
+            //         state.tasks.map((item)=>{
+            //             if(item.taskId===action.payload){
+            //                 item.taskDone =! item.taskDone;
+            //                 console.log(item);
+            //                 return item;
+            //             }else{
+            //                 return item;
+            //             }
+            //         })
+            // };
+
+
+            const nextStateToggle = {
+                ...state,
+                tasks:
+                    state.tasks.map((item)=>{
+                        if(item.taskId===action.payload){
+                            return({
+                                ...item,
+                                taskDone: !item.taskDone
+                            });
+                        }else{
+                            return item;
+                        };
+                    })
+            }
+
+
+            
+            
+            return(nextStateToggle);
         default:return state;
     }
 };

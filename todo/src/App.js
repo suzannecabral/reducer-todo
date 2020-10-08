@@ -44,8 +44,16 @@ const handleSubmit = (e) => {
 
 };
 
-//--toggleCompleted-----
+//--toggleDone-----
 //dispatch to change task.taskDone:!task.taskDone in state
+
+const toggleDone = (taskId) => {
+
+  // console.log("toggle done, ID: ", taskId);
+  dispatch({ type:"TOGGLE_DONE", payload:taskId });
+
+};
+
 
 //--clearcompleted-----
 //dispatch to remove tasks with task.taskDone:true
@@ -65,6 +73,7 @@ const handleSubmit = (e) => {
 
         <TodoList 
           state={state}
+          toggleDone={toggleDone}
         />
         {/* Todo LIST needs:
               1. state obj
