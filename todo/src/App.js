@@ -13,7 +13,9 @@ const App = () => {
 //----STATE-----------
 
 //--useState-----
+//state for the form input:
 const [todoState,setTodoState]=useState();
+
 
 //--useReducer-----
 //useReducer(reducer, intitialState);
@@ -27,6 +29,9 @@ const [state,dispatch]=useReducer(reducer,initialState);
 
 //--handleChanges-----
 // just an event listener
+const handleChanges = (e) => {
+  setTodoState(e.target.value);
+}
 
 //--handleSubmit-----
 //dispatch to add to tasks[] in state
@@ -37,12 +42,13 @@ const [state,dispatch]=useReducer(reducer,initialState);
 //--clearcompleted-----
 //dispatch to remove tasks with task.taskDone:true
 
-
-
   return (
     <div className="App">
         <h1>Todo List</h1>
-        <TodoForm />
+        <p>Test Input: {todoState}</p>
+        <TodoForm 
+          handleChanges={handleChanges}
+        />
         {/* Todo form needs: 
               1. handleChanges fn
               2. handleSubmit fn
