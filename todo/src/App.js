@@ -31,10 +31,18 @@ const [state,dispatch]=useReducer(reducer,initialState);
 // just an event listener
 const handleChanges = (e) => {
   setTodoState(e.target.value);
-}
+};
 
 //--handleSubmit-----
 //dispatch to add to tasks[] in state
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  //dispatch
+  //syntax:  dispatch({ type:"ACTION_NAME", payload:formState });
+  dispatch({ type:"ADD_TASK", payload:todoState });
+
+};
 
 //--toggleCompleted-----
 //dispatch to change task.taskDone:!task.taskDone in state
@@ -45,9 +53,9 @@ const handleChanges = (e) => {
   return (
     <div className="App">
         <h1>Todo List</h1>
-        <p>Test Input: {todoState}</p>
         <TodoForm 
           handleChanges={handleChanges}
+          handleSubmit={handleSubmit}
         />
         {/* Todo form needs: 
               1. handleChanges fn
