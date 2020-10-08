@@ -4,9 +4,6 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 
-function handleInputChange(e){
-
-}
 
 function App() {
   return (
