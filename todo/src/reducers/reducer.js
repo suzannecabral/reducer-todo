@@ -31,7 +31,7 @@ export const reducer = (state, action) => {
     switch(action.type){
         //ADD_TASK
         case "ADD_TASK":
-            console.log("Added Task", action.payload);
+            // console.log("Added Task", action.payload);
             const nextStateAdd = {
                 ...state,
                 tasks:[...state.tasks,
@@ -47,34 +47,19 @@ export const reducer = (state, action) => {
             );
         //DELETE_DONE
                 //filter
+        case "DELETE_DONE":
+            const nextStateDelete = { 
+                ...state,
+                tasks:
+                    state.tasks.filter( item => item.taskDone===false)
+            }   
+            return nextStateDelete;
 
         //TOGGLE_DONE
         case "TOGGLE_DONE":
             //map: need id, change status of the one that matches id from click function
                 // return full item with taskdone:true
                 // make sure whole object is in return
-
-            // console.log("Reducer Toggled");
-            // console.log(action)
-
-                
-            // state.copied=!state.copied;
-
-            
-            // const nextStateToggle = {
-            //     ...state,
-            //     tasks:
-            //         state.tasks.map((item)=>{
-            //             if(item.taskId===action.payload){
-            //                 item.taskDone =! item.taskDone;
-            //                 console.log(item);
-            //                 return item;
-            //             }else{
-            //                 return item;
-            //             }
-            //         })
-            // };
-
 
             const nextStateToggle = {
                 ...state,
@@ -91,9 +76,6 @@ export const reducer = (state, action) => {
                     })
             }
 
-
-            
-            
             return(nextStateToggle);
         default:return state;
     }

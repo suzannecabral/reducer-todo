@@ -55,8 +55,13 @@ const toggleDone = (taskId) => {
 };
 
 
-//--clearcompleted-----
+//--deleteDone-----
 //dispatch to remove tasks with task.taskDone:true
+
+const deleteDone = (e) => {
+  e.preventDefault();
+  dispatch({ type:"DELETE_DONE" });
+}
 
   return (
     <div className="App">
@@ -64,11 +69,12 @@ const toggleDone = (taskId) => {
         <TodoForm 
           handleChanges={handleChanges}
           handleSubmit={handleSubmit}
+          deleteDone={deleteDone}
         />
         {/* Todo form needs: 
               1. handleChanges fn
               2. handleSubmit fn
-              3. clearCompleted fn
+              3. deleteDone fn
         */}
 
         <TodoList 
