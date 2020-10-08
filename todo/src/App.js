@@ -5,7 +5,7 @@ import TodoList from './components/TodoList';
 
 
 
-function App() {
+const App = () => {
   return (
     <div className="App">
         <h1>Todo List</h1>

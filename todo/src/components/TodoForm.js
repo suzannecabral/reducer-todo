@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState, useReducer } from "react";
 
-export default function TodoForm(props){
+const TodoForm = (props) => {
 
     return(
         <form>
@@ -12,3 +12,5 @@ export default function TodoForm(props){
 
 
 }
+
+export default TodoForm;

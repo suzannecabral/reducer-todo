@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TodoList(props){
+const TodoList = (props) => {
 
     return(
         <ul>
@@ -10,3 +10,5 @@ export default function TodoList(props){
     );
 
 }
+
+export default TodoList;
