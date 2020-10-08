@@ -1,32 +1,9 @@
 import React from "react";
-// import shortid from "shortid";
-
-const tasks = [
-    {
-        taskName:"Write Lists",
-        taskDone:false,
-        taskId:"w8NUAz9AZq",
-    },
-    {
-        taskName:"Bake Cookies",
-        taskDone:false,
-        taskId:"r7bEZzB3Lr",
-    },
-    {
-        taskName:"Carve a Pumpkin",
-        taskDone:false,
-        taskId:"nDwfYvPTP1",
-    },
-];
-
-//generated from shortid:
-//n46IX7mLB
-//kUMVAQpSgP
-//0y2jKQdRRd
-//XbIIKrNQKc
 
 const TodoList = (props) => {
 
+    const { tasks } = props.state
+    
     return(
         <ul>
             {
@@ -37,9 +14,7 @@ const TodoList = (props) => {
              })
             }
         </ul>
-
     );
-
 }
 
 export default TodoList;

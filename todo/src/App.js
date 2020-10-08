@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import { useState, useReducer } from "react";
+import { initialState, reducer } from "./reducers/reducer"
 
 //import useState, useReducer
 
@@ -11,16 +13,13 @@ const App = () => {
 //----STATE-----------
 
 //--useState-----
-
-//??? what should this be set to
-//need a list of tasks, they have a self contained status
-
+const [todoState,setTodoState]=useState();
 
 //--useReducer-----
 //useReducer(reducer, intitialState);
 //"initial state" and "reducer" need to be imported from reducer.js
 
-//??? look up syntax, why is it const=[state, dispatch]
+const [state,dispatch]=useReducer(reducer,initialState);
 
 
 
@@ -50,7 +49,9 @@ const App = () => {
               3. clearCompleted fn
         */}
 
-        <TodoList />
+        <TodoList 
+          state={state}
+        />
         {/* Todo LIST needs:
               1. state obj
               2. toggleCompleted fn
