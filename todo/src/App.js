@@ -37,7 +37,7 @@ const handleChanges = (e) => {
 //dispatch to add to tasks[] in state
 const handleSubmit = (e) => {
   e.preventDefault();
-
+  document.getElementById("todoInput").value="";
   //dispatch
   //syntax:  dispatch({ type:"ACTION_NAME", payload:formState });
   dispatch({ type:"ADD_TASK", payload:todoState });
